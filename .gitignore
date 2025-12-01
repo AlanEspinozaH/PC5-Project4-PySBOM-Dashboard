@@ -1,0 +1,46 @@
+# Entornos virtuales
+.venv/
+venv/
+env/
+
+# Archivos Python generados
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Cachés de herramientas
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Cobertura y testing
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+
+# Distribución / empaquetado
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Configuración local de IDEs/editores
+.vscode/
+.idea/
+*.swp
+
+# Variables de entorno / credenciales locales
+.env
+.env.*
+
+# Archivos de sistema (Windows/macOS)
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Docker: overrides locales
+docker-compose.override.yml
