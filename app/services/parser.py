@@ -80,9 +80,7 @@ def load_sbom(path: Path) -> dict[str, Any]:
     try:
         return json.loads(text)
     except json.JSONDecodeError as exc:
-        raise SBOMParseError(
-            f"File '{path}' is not valid JSON: {exc}"
-        ) from exc
+        raise SBOMParseError(f"File '{path}' is not valid JSON: {exc}") from exc
 
 
 def load_sbom_for_service(service: str) -> dict[str, Any]:
@@ -98,6 +96,4 @@ def load_sbom_for_service(service: str) -> dict[str, Any]:
         if meta.service == service:
             return load_sbom(meta.path)
 
-    raise FileNotFoundError(
-        f"No SBOM found for service '{service}' in {EVIDENCE_DIR}"
-    )
+    raise FileNotFoundError(f"No SBOM found for service '{service}' in {EVIDENCE_DIR}")
