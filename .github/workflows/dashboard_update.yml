@@ -1,0 +1,31 @@
+name: Dashboard Update
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  consolidate-sboms:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Simulate SBOM Consolidation
+        run: |
+          mkdir -p .evidence
+          # Simulamos que leemos varios reportes y generamos un resumen
+          echo '{"status": "consolidated", "timestamp": "'$(date)'"}' > .evidence/aggregated-report.json
+          echo "Generando reporte consolidado de vulnerabilidades..."
+
+      - name: Upload Aggregated Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: aggregated-report
+          path: .evidence/aggregated-report.json

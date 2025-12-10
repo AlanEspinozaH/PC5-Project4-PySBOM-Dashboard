@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  sbom-dashboard:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    container_name: sbom-dashboard
+    ports:
+      - "8000:8000"
+    volumes:
+      # Montamos .evidence para que los reportes persistan en tu máquina
+      # y cumplan el requisito de "evidencias en carpeta"
+      - ./.evidence:/app/.evidence
+    environment:
+      - EVIDENCE_DIR=/app/.evidence
+    # Límite de recursos (Buenas prácticas DevSecOps)
+    deploy:
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 512M
