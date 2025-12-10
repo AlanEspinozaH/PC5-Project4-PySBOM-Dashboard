@@ -73,6 +73,27 @@ syft dir:. -o json > .evidence/sbom-dashboard.json
 
 -----
 
+## 🚀 Cómo ejecutarlo (Localmente)
+
+Para facilitar la revisión, el proyecto está configurado para correr con un solo comando usando Docker Compose.
+
+### 1. Clonar y Levantar
+```bash
+git clone <url-del-repo>
+cd PC5-Project4-PySBOM-Dashboard
+```
+
+# Levanta la app y monta el volumen de evidencias
+docker compose up --build
+2. Probar Endpoints
+Una vez activo, puedes acceder a:
+
+Documentación Interactiva: http://localhost:8000/docs
+
+Estadísticas de SBOM: http://localhost:8000/stats
+
+Healthcheck: http://localhost:8000/health
+
 ## 📅 Roadmap de Sprints (7 Días)
 
 Este proyecto se desarrolla en 3 Sprints de 2 días cada uno, más un día de demo final[cite: 8].
@@ -84,14 +105,14 @@ Este proyecto se desarrolla en 3 Sprints de 2 días cada uno, más un día de de
   - [ ] Integración de **Syft** local para generar `sbom.json`.
   - [ ] Pipeline CI: Linting y Tests básicos.
 
-### ⏳ Sprint 2: Análisis & Estadísticas (Días 3-4) 
+### ✅ Sprint 2: Análisis & Estadísticas (Días 3-4) 
 
   - [ ] Endpoint `/stats`: Conteo de paquetes y Top 5 dependencias.
   - [ ] Tests unitarios para lógica de agregación.
   - [ ] Pipeline `dashboard_update.yml`: Consolidación de SBOMs automática.
   - [ ] Dockerización inicial (Dockerfile).
 
-### ⏳ Sprint 3: Hardening & Producción (Días 5-6) 
+### ✅ Sprint 3: Hardening & Producción (Días 5-6) 
 
   - [ ] Dockerfile seguro (User non-root, multi-stage).
   - [ ] Despliegue en Docker Compose (o K8s local/Minikube).
